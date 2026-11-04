@@ -2,9 +2,19 @@ import type { Metadata } from 'next';
 import ContactContent from './ContactContent';
 
 export const metadata: Metadata = {
-  title: 'Contact Us | EEYA CREATIVES',
+  title: 'Contact',
   description:
     'Let’s build something remarkable. Reach out to EEYA CREATIVES for AI video advertisements, brand campaigns, and website development.',
+  openGraph: {
+    title: 'EEYA CREATIVES | Contact',
+    description:
+      'Let’s build something remarkable. Reach out to EEYA CREATIVES for AI video advertisements, brand campaigns, and website development.',
+  },
+  twitter: {
+    title: 'EEYA CREATIVES | Contact',
+    description:
+      'Let’s build something remarkable. Reach out to EEYA CREATIVES for AI video advertisements, brand campaigns, and website development.',
+  },
 };
 
 export default function ContactPage() {

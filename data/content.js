@@ -168,7 +168,7 @@ export const brand = {
   headerSubtext: 'AI POWERED CREATIVE STUDIO',
   slogan: 'Ideas Meet Visuals',
   seo: {
-    title: `EEYA CREATIVES | ${motto}`,
+    title: 'EEYA CREATIVES | AI Powered Creative Studio',
     description: `EEYA CREATIVES is an ${motto} specializing in cinematic video advertisements, brand films, and professional website development for businesses of every size.`,
     ogImage: '/images/hero/hero-section-latest.jpg',
   },

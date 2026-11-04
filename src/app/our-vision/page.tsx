@@ -9,9 +9,19 @@ import { vision, buildWhatsAppLink, whatsappMessages } from '@/data/content';
 import { cormorantGaramond } from '@/app/fonts';
 
 export const metadata: Metadata = {
-  title: 'Our Vision | EEYA CREATIVES',
+  title: 'Our Vision',
   description:
     'Every brand has a story worth sharing. Great storytelling and refined design should not belong only to the few. At EEYA CREATIVES, brands of every size can look and feel premium.',
+  openGraph: {
+    title: 'EEYA CREATIVES | Our Vision',
+    description:
+      'Every brand has a story worth sharing. Great storytelling and refined design should not belong only to the few. At EEYA CREATIVES, brands of every size can look and feel premium.',
+  },
+  twitter: {
+    title: 'EEYA CREATIVES | Our Vision',
+    description:
+      'Every brand has a story worth sharing. Great storytelling and refined design should not belong only to the few. At EEYA CREATIVES, brands of every size can look and feel premium.',
+  },
 };
 
 export default function OurVisionPage() {

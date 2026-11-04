@@ -21,7 +21,10 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: brand.seo.title,
+  title: {
+    default: 'EEYA CREATIVES | AI Powered Creative Studio',
+    template: 'EEYA CREATIVES | %s',
+  },
   description: brand.seo.description,
   keywords: [
     'AI advertising',
@@ -34,7 +37,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'EEYA CREATIVES' }],
   ...(siteUrl ? { metadataBase: new URL(siteUrl) } : {}),
   openGraph: {
-    title: brand.seo.title,
+    title: 'EEYA CREATIVES | AI Powered Creative Studio',
     description: brand.seo.description,
     type: 'website',
     siteName: brand.name,
@@ -51,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: brand.seo.title,
+    title: 'EEYA CREATIVES | AI Powered Creative Studio',
     description: brand.seo.description,
     images: [brand.seo.ogImage],
   },

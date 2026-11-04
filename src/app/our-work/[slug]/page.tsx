@@ -19,10 +19,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!project) return {};
 
   return {
-    title: `${project.title} | EEYA CREATIVES`,
+    title: project.title,
     description: project.description,
     openGraph: {
-      title: `${project.title} | EEYA CREATIVES`,
+      title: `EEYA CREATIVES | ${project.title}`,
+      description: project.description,
+      images: [project.thumbnail],
+    },
+    twitter: {
+      title: `EEYA CREATIVES | ${project.title}`,
       description: project.description,
       images: [project.thumbnail],
     },
