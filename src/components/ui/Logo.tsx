@@ -18,7 +18,6 @@ export default function Logo({
   scrolled = false,
 }: LogoProps) {
   const pathname = usePathname();
-  const [shimmer, setShimmer] = useState(false);
 
   // Tab visibility and saveData detection for CSS animations
   useEffect(() => {
@@ -39,26 +38,6 @@ export default function Logo({
       }
     };
     document.addEventListener('visibilitychange', handleVisibility);
-
-    // One-time shimmer highlight (1.4s, starts 0.4s after load, once per session)
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!prefersReducedMotion && !nav.connection?.saveData) {
-      try {
-        const hasPlayed = sessionStorage.getItem('eeya_brand_shimmer_played');
-        if (!hasPlayed) {
-          const timer = setTimeout(() => {
-            setShimmer(true);
-            sessionStorage.setItem('eeya_brand_shimmer_played', '1');
-          }, 400);
-          return () => {
-            clearTimeout(timer);
-            document.removeEventListener('visibilitychange', handleVisibility);
-          };
-        }
-      } catch {
-        // safe fallback if storage unavailable
-      }
-    }
 
     return () => {
       document.removeEventListener('visibilitychange', handleVisibility);
@@ -148,7 +127,7 @@ export default function Logo({
       {/* ── 2. WORDMARK & OPTIONAL MICRO-TAGLINE ── */}
       <div className="flex flex-col items-start justify-center min-w-0 shrink-0">
         <div className="relative inline-flex items-center overflow-visible">
-          {/* Main Wordmark with Breathing Glow & Sweep Shine */}
+          {/* Main Wordmark with Breathing Glow & Sweep Shine (strictly on text) */}
           <span
             className={`font-serif uppercase leading-none ${wordmarkSizeClass} brand-wordmark-gold whitespace-nowrap ${wrapAnimationClass}`}
             data-text="EEYA CREATIVES"
@@ -156,12 +135,6 @@ export default function Logo({
             <span className="font-[800] mr-[0.24em]">EEYA</span>
             <span className="font-[700]">CREATIVES</span>
           </span>
-
-          {/* Shimmer Highlight Layer */}
-          <div
-            className={`brand-shimmer-highlight ${shimmer ? 'animate-brand-shimmer' : ''}`}
-            aria-hidden="true"
-          />
         </div>
 
         {/* ── 3. MICRO-TAGLINE: only at 1360px and wider, and only while unscrolled ── */}

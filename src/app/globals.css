@@ -542,13 +542,14 @@
   overflow: visible;
 }
 
-/* Task 2: Breathing glow ::before behind text */
+/* Task 2: Breathing glow ::before strictly behind text (does not overlap adjacent links) */
 .brand-title-wrap::before {
   content: '';
   position: absolute;
-  inset: -12px -22px;
-  background: radial-gradient(ellipse at 50% 55%, rgba(231, 186, 92, 0.42), rgba(231, 186, 92, 0) 68%);
-  filter: blur(14px);
+  inset: -6px 0;
+  max-width: 100%;
+  background: radial-gradient(ellipse at 50% 55%, rgba(231, 186, 92, 0.38), rgba(231, 186, 92, 0) 68%);
+  filter: blur(12px);
   z-index: -1;
   pointer-events: none;
   animation: breathingGlow 4.2s ease-in-out infinite alternate;
@@ -665,51 +666,6 @@ body.tab-hidden .emblem-ring-pulse {
   animation-play-state: paused !important;
 }
 
-@keyframes brandShimmerSlide {
-  0% {
-    transform: translateX(-150%) skewX(-25deg);
-    opacity: 0;
-  }
-  20% {
-    opacity: 1;
-  }
-  80% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(250%) skewX(-25deg);
-    opacity: 0;
-  }
-}
-
-.brand-shimmer-highlight {
-  position: absolute;
-  top: -25%;
-  bottom: -25%;
-  width: 50%;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.7) 45%,
-    rgba(255, 235, 175, 0.9) 55%,
-    transparent 100%
-  );
-  pointer-events: none;
-  mix-blend-mode: color-dodge;
-  transform: translateX(-150%) skewX(-25deg);
-  opacity: 0;
-}
-
-.animate-brand-shimmer {
-  animation: brandShimmerSlide 1.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-@media (hover: hover) and (min-width: 1024px) {
-  .group:hover .brand-shimmer-highlight {
-    animation: brandShimmerSlide 1.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  }
-}
-
 /* ── Shared Site Container ────────────────────────── */
 .site-container {
   width: 100%;
@@ -774,10 +730,6 @@ body.tab-hidden .emblem-ring-pulse {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .brand-shimmer-highlight {
-    display: none !important;
-    animation: none !important;
-  }
   .quote-gold-underline::after {
     animation: none !important;
     width: 100% !important;
