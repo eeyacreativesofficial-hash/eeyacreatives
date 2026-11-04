@@ -12,7 +12,7 @@ export default function Hero() {
   const heroObjPosMobile = spaceImages.hero.objectPosition.mobile || '70% 50%';
 
   const heroImageCard = (
-    <div className="w-full max-w-sm mx-auto aspect-[16/11] rounded-[4px] border border-gold/40 relative overflow-hidden mt-6 mb-2 shadow-2xl shadow-[#080B12]/90">
+    <div className="w-full max-w-sm mx-auto aspect-[16/11] rounded-[4px] border border-gold/40 relative overflow-hidden mt-6 mb-0 shadow-2xl shadow-[#080B12]/90">
       <Image
         src={heroImageSrc}
         alt="Dr. A.P.J. Abdul Kalam in a cinematic studio with production lighting, cameras and books"
@@ -29,7 +29,7 @@ export default function Hero() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            'linear-gradient(180deg, transparent 70%, rgba(8, 11, 18, 0.6) 90%, #080B12 100%)',
+            'linear-gradient(180deg, transparent 55%, rgba(8, 11, 18, 0.75) 85%, #080B12 100%)',
         }}
         aria-hidden="true"
       />
@@ -244,7 +244,7 @@ export default function Hero() {
       </div>
 
       {/* ── 4. MOBILE LAYOUT (Under 768px, single-column normal flow) ── */}
-      <div className="flex md:hidden relative z-10 site-container w-full max-w-lg mx-auto flex-col items-center justify-center pt-24 pb-8 sm:pb-10 text-center hero-fade-in">
+      <div className="flex md:hidden relative z-10 site-container w-full max-w-lg mx-auto flex-col items-center justify-center pt-24 pb-0 text-center hero-fade-in">
         {/* Top image position if configured */}
         {mobileHeroImagePosition === 'top' && heroImageCard}
 
@@ -301,17 +301,17 @@ export default function Hero() {
         {mobileHeroImagePosition === 'afterButtons' && heroImageCard}
 
         {/* 5. Highlight cards: 2 cols minmax(0,1fr), 12px gaps, 10-12px padding, icon 28px, 10px icon gap, text 12.5-13.5px line-height 1.3 */}
-        <div className="grid grid-cols-[repeat(2,minmax(0,1fr))] gap-3 w-full max-w-[420px] mx-auto items-stretch text-left">
+        <div className="grid grid-cols-[repeat(2,minmax(0,1fr))] gap-3 w-full max-w-[420px] mx-auto items-stretch text-left mb-6">
           {hero.highlights.map((item, i) => (
             <Link
               key={i}
               href="/services"
-              className="flex items-center gap-[10px] p-2.5 sm:p-3 pr-2 rounded-sm border border-[#202B3B] bg-[#111925]/90 active:scale-[0.98] transition-all backdrop-blur-sm group min-w-0 h-full"
+              className="flex items-center gap-[8px] sm:gap-[10px] p-2 sm:p-2.5 pr-1.5 sm:pr-2 rounded-sm border border-[#202B3B] bg-[#111925]/90 active:scale-[0.98] transition-all backdrop-blur-sm group min-w-0 h-full"
             >
-              <div className="w-7 h-7 min-w-[28px] min-h-[28px] rounded-sm bg-gold/15 border border-gold/30 flex items-center justify-center flex-shrink-0 text-gold">
-                <Icon name={item.icon} size={14} />
+              <div className="w-6 h-6 sm:w-7 sm:h-7 min-w-[24px] min-h-[24px] sm:min-w-[28px] sm:min-h-[28px] rounded-sm bg-gold/15 border border-gold/30 flex items-center justify-center flex-shrink-0 text-gold">
+                <Icon name={item.icon} size={13} />
               </div>
-              <span className="font-sans text-[12.5px] sm:text-[13.5px] leading-snug text-[#F5F2EA] font-medium min-w-0 flex-1 break-normal hyphens-none">
+              <span className="font-sans text-[12px] sm:text-[12.5px] leading-snug text-[#F5F2EA] font-medium min-w-0 flex-1 break-words" style={{ wordBreak: 'break-word', overflowWrap: 'break-word' }}>
                 {item.title}
               </span>
             </Link>
