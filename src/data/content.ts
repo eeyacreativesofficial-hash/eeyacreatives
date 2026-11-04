@@ -351,8 +351,8 @@ export const socials: readonly SocialItem[] = [
     id: 'instagram',
     label: 'Instagram',
     icon: 'instagram',
-    url: '',
-    enabled: false,
+    url: 'https://www.instagram.com/eeya_creatives/',
+    enabled: true,
   },
   {
     id: 'linkedin',

@@ -106,7 +106,7 @@ export default function RootLayout({
                   description:
                     'AI-powered advertising, cinematic video production, brand films, and website development creative studio.',
                   sameAs: [
-                    'https://instagram.com/eeyacreatives',
+                    'https://www.instagram.com/eeya_creatives/',
                     'https://youtube.com/@eeyacreatives',
                     'https://linkedin.com/company/eeyacreatives',
                   ],
