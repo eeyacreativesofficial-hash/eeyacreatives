@@ -98,10 +98,10 @@ export default function Footer() {
               >
                 <Icon name="whatsapp" size={20} className="text-gold shrink-0 mt-0.5" />
                 <div className="flex flex-col min-w-0">
-                  <span className="text-[11px] font-sans font-semibold tracking-wider uppercase text-gold">
+                  <span className="text-[11px] font-sans font-semibold tracking-wider uppercase text-gold leading-none">
                     WhatsApp
                   </span>
-                  <span className="text-[15px] xl:text-[16px] text-[#CFCBC1] font-sans whitespace-nowrap group-hover:text-gold transition-colors">
+                  <span className="mt-1 text-[15px] xl:text-[16px] leading-[1.3] text-[#CFCBC1] font-sans whitespace-nowrap group-hover:text-gold transition-colors">
                     {contact.whatsapp.displayNumber}
                   </span>
                 </div>
@@ -116,10 +116,10 @@ export default function Footer() {
               >
                 <Icon name="mail" size={20} className="text-gold shrink-0 mt-0.5" />
                 <div className="flex flex-col min-w-0">
-                  <span className="text-[11px] font-sans font-semibold tracking-wider uppercase text-gold">
+                  <span className="text-[11px] font-sans font-semibold tracking-wider uppercase text-gold leading-none">
                     Email
                   </span>
-                  <span className="text-[15px] xl:text-[16px] text-[#CFCBC1] font-sans whitespace-nowrap group-hover:text-gold transition-colors">
+                  <span className="mt-1 text-[15px] xl:text-[16px] leading-[1.3] text-[#CFCBC1] font-sans whitespace-nowrap group-hover:text-gold transition-colors">
                     {contact.email.address}
                   </span>
                 </div>
@@ -129,15 +129,15 @@ export default function Footer() {
               <div className="flex items-start gap-3 min-w-0">
                 <Icon name="phone" size={20} className="text-gold shrink-0 mt-0.5" />
                 <div className="flex flex-col min-w-0">
-                  <span className="text-[11px] font-sans font-semibold tracking-wider uppercase text-gold">
+                  <span className="text-[11px] font-sans font-semibold tracking-wider uppercase text-gold leading-none">
                     Call
                   </span>
-                  <div className="flex flex-col">
+                  <div className="flex flex-col -mt-2">
                     {contact.callNumbers.map((num) => (
                       <a
                         key={num.tel}
                         href={`tel:${num.tel}`}
-                        className="min-h-[44px] flex items-center text-[15px] xl:text-[16px] text-[#CFCBC1] font-sans whitespace-nowrap hover:text-gold transition-colors"
+                        className="min-h-[44px] h-[44px] flex items-center text-[15px] xl:text-[16px] leading-[1.3] text-[#CFCBC1] font-sans whitespace-nowrap hover:text-gold transition-colors"
                       >
                         {num.display}
                       </a>

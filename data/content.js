@@ -18,7 +18,7 @@ export const callNumbers = [
   { tel: '+919360347612', display: '+91 93603 47612' },
 ];
 
-export const directWhatsAppMode = 'visitor';
+export const directWhatsAppMode = 'as-written';
 export const directWhatsAppMessage = "Hello EEYA CREATIVES, I'd like to know more about your services.";
 // greetingText is meant for the WhatsApp Business greeting message (configured inside the WhatsApp Business app).
 export const greetingText = 'Thank you for contacting EEYA CREATIVES! Please let us know how we can help you.';
