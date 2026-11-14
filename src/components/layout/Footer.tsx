@@ -228,7 +228,7 @@ export default function Footer() {
                   <a
                     key={num.tel}
                     href={`tel:${num.tel}`}
-                    className="min-h-[44px] flex items-center gap-3 text-sm text-[#CFCBC1] hover:text-gold transition-colors"
+                    className="min-h-[44px] h-[44px] flex items-center gap-3 text-sm leading-[1.3] text-[#CFCBC1] hover:text-gold transition-colors"
                   >
                     <Icon name="phone" size={18} className="text-gold shrink-0" />
                     <span>{num.display}</span>

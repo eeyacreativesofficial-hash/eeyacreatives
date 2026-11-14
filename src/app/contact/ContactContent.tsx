@@ -220,13 +220,13 @@ export default function ContactContent() {
                   <span className="text-xs font-sans uppercase tracking-widest text-gold/80 block mb-1">
                     Call us
                   </span>
-                  <div className="flex flex-col space-y-0.5">
+                  <div className="flex flex-col">
                     {contact.callNumbers.map((num) => (
                       <a
                         key={num.tel}
                         href={`tel:${num.tel}`}
                         aria-label={`Call us: ${num.display}`}
-                        className="min-h-[44px] flex items-center text-ivory font-medium text-base hover:text-gold transition-colors"
+                        className="min-h-[44px] h-[44px] flex items-center text-ivory font-medium text-base leading-[1.3] hover:text-gold transition-colors"
                       >
                         {num.display}
                       </a>
