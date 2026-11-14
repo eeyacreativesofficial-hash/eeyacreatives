@@ -84,11 +84,11 @@ Runs ESLint across all TypeScript files.
 📁 `src/data/content.ts`
 
 - **Change WhatsApp Number or Pre-filled Messages:**
-  Update `contact.whatsapp.number` and `contact.whatsapp.url`.
+  Update `whatsappNumber`, `whatsappDisplay`, and `directWhatsAppMessage`.
 - **Change Email Address:**
   Update `contact.email.address` and `contact.email.url`.
-- **Change Phone Display & Tap-to-Call Link:**
-  Update `contact.phone.display` and `contact.phone.number`.
+- **Change Phone Display & Tap-to-Call Links:**
+  Update `callNumbers` array (`tel` and `display`).
 - **Update Slogan or Tagline:**
   Update `brand.slogan` or `brand.tagline`.
 - **Add or Modify Projects:**

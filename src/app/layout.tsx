@@ -116,7 +116,7 @@ export default function RootLayout({
                   '@id': 'https://eeyacreatives.com/#service',
                   name: 'EEYA CREATIVES Studio',
                   url: 'https://eeyacreatives.com',
-                  telephone: '+91-88255-69400',
+                  telephone: ['+91 88255 69400', '+91 93603 47612'],
                   email: 'eeyacreatives.official@gmail.com',
                   priceRange: '$$',
                   image: 'https://eeyacreatives.com/images/hero/hero-section-latest.jpg',

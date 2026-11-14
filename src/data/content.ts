@@ -5,7 +5,21 @@
 // ============================================================
 
 // ── WhatsApp Configuration & Messages ─────────────────────────
-const WHATSAPP_PHONE_NUMBER = '918825569400';
+export const whatsappNumber = '919360347612';
+export const whatsappDisplay = '+91 93603 47612';
+
+export const callNumbers = [
+  { tel: '+918825569400', display: '+91 88255 69400' },
+  { tel: '+919360347612', display: '+91 93603 47612' },
+] as const;
+
+export type DirectWhatsAppMode = 'visitor' | 'as-written';
+export const directWhatsAppMode: DirectWhatsAppMode = 'visitor';
+export const directWhatsAppMessage = "Hello EEYA CREATIVES, I'd like to know more about your services.";
+// greetingText is meant for the WhatsApp Business greeting message (configured inside the WhatsApp Business app).
+export const greetingText = 'Thank you for contacting EEYA CREATIVES! Please let us know how we can help you.';
+export const activeDirectWhatsAppMessage =
+  directWhatsAppMode === 'visitor' ? directWhatsAppMessage : greetingText;
 
 export interface ContactFormWhatsAppInput {
   name: string;
@@ -63,8 +77,7 @@ export function formatQuoteWhatsAppMessage(input: QuoteFormInput): string {
 }
 
 export const whatsappMessages = {
-  default:
-    "Hi EEYA CREATIVES, I'm interested in your cinematic ads and websites. Could you share more details?",
+  default: activeDirectWhatsAppMessage,
   service: (service: string) =>
     `Hello EEYA CREATIVES, I'd like to elevate my brand with ${service}. Can we discuss it?`,
   offer: (offer: string) =>
@@ -84,8 +97,8 @@ export const whatsappMessages = {
   },
 } as const;
 
-export function buildWhatsAppLink(message: string): string {
-  return `https://wa.me/${WHATSAPP_PHONE_NUMBER}?text=${encodeURIComponent(message)}`;
+export function buildWhatsAppLink(message: string = activeDirectWhatsAppMessage): string {
+  return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
 export const buildWhatsAppUrl = buildWhatsAppLink;
 
@@ -160,21 +173,17 @@ export function buildEmailAction(params: {
 // ── Contact ──────────────────────────────────────────────────
 export const contact = {
   whatsapp: {
-    number: WHATSAPP_PHONE_NUMBER,
-    displayNumber: '+91 88255 69400',
-    defaultMessage: whatsappMessages.default,
-    url: buildWhatsAppLink(whatsappMessages.default),
+    number: whatsappNumber,
+    displayNumber: whatsappDisplay,
+    defaultMessage: activeDirectWhatsAppMessage,
+    url: buildWhatsAppLink(activeDirectWhatsAppMessage),
   },
   email: {
     address: 'eeyacreatives.official@gmail.com',
     subject: 'Enquiry for EEYA CREATIVES',
     url: 'mailto:eeyacreatives.official@gmail.com?subject=Enquiry%20for%20EEYA%20CREATIVES',
   },
-  phone: {
-    number: '+918825569400',
-    display: '+91 88255 69400',
-    url: 'tel:+918825569400',
-  },
+  callNumbers,
 } as const;
 
 // ── Site URL Configuration ──────────────────────────────────
@@ -1211,9 +1220,9 @@ export const footer = {
     { label: 'Festive Campaigns', href: '/services#festive-campaigns' },
   ],
   contactLinks: [
-    { label: 'WhatsApp', href: buildWhatsAppLink(whatsappMessages.default) },
+    { label: 'WhatsApp', href: buildWhatsAppLink(activeDirectWhatsAppMessage) },
     { label: 'Email', href: 'mailto:eeyacreatives.official@gmail.com?subject=Enquiry%20for%20EEYA%20CREATIVES' },
-    { label: 'Call', href: 'tel:+918825569400' },
+    { label: 'Call', href: `tel:${callNumbers[0].tel}` },
   ],
 } as const;
 

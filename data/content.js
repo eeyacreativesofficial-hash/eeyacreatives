@@ -10,11 +10,24 @@
 // ============================================================
 
 // ── WhatsApp Configuration & Messages ─────────────────────────
-const WHATSAPP_PHONE_NUMBER = '918825569400';
+export const whatsappNumber = '919360347612';
+export const whatsappDisplay = '+91 93603 47612';
+
+export const callNumbers = [
+  { tel: '+918825569400', display: '+91 88255 69400' },
+  { tel: '+919360347612', display: '+91 93603 47612' },
+];
+
+export const directWhatsAppMode = 'visitor';
+export const directWhatsAppMessage = "Hello EEYA CREATIVES, I'd like to know more about your services.";
+// greetingText is meant for the WhatsApp Business greeting message (configured inside the WhatsApp Business app).
+export const greetingText = 'Thank you for contacting EEYA CREATIVES! Please let us know how we can help you.';
+
+export const activeDirectWhatsAppMessage =
+  directWhatsAppMode === 'visitor' ? directWhatsAppMessage : greetingText;
 
 export const whatsappMessages = {
-  default:
-    "Hello EEYA CREATIVES, I'd love to collaborate and build a premium brand together.",
+  default: activeDirectWhatsAppMessage,
   service: (service) =>
     `Hello EEYA CREATIVES, I'd like to elevate my brand with ${service}. Can we discuss it?`,
   offer: (offer) =>
@@ -34,29 +47,25 @@ export const whatsappMessages = {
   },
 };
 
-export function buildWhatsAppLink(message) {
-  return `https://wa.me/${WHATSAPP_PHONE_NUMBER}?text=${encodeURIComponent(message)}`;
+export function buildWhatsAppLink(message = activeDirectWhatsAppMessage) {
+  return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
 export const buildWhatsAppUrl = buildWhatsAppLink;
 
 // ── Contact ──────────────────────────────────────────────────
 export const contact = {
   whatsapp: {
-    number: WHATSAPP_PHONE_NUMBER,
-    displayNumber: '+91 88255 69400',
-    defaultMessage: whatsappMessages.default,
-    url: buildWhatsAppLink(whatsappMessages.default),
+    number: whatsappNumber,
+    displayNumber: whatsappDisplay,
+    defaultMessage: activeDirectWhatsAppMessage,
+    url: buildWhatsAppLink(activeDirectWhatsAppMessage),
   },
   email: {
     address: 'eeyacreatives.official@gmail.com',
     subject: 'Enquiry for EEYA CREATIVES',
     url: 'mailto:eeyacreatives.official@gmail.com?subject=Enquiry%20for%20EEYA%20CREATIVES',
   },
-  phone: {
-    number: '+918825569400',
-    display: '+91 88255 69400',
-    url: 'tel:+918825569400',
-  },
+  callNumbers,
 };
 
 // ── Official Studio Motto ──────────────────────────────────────
@@ -993,9 +1002,9 @@ export const footer = {
     { label: 'Festive Campaigns', href: '/services#festive-campaigns' },
   ],
   contactLinks: [
-    { label: 'WhatsApp', href: buildWhatsAppLink(whatsappMessages.default) },
+    { label: 'WhatsApp', href: buildWhatsAppLink(activeDirectWhatsAppMessage) },
     { label: 'Email', href: 'mailto:eeyacreatives.official@gmail.com?subject=Enquiry%20for%20EEYA%20CREATIVES' },
-    { label: 'Call', href: 'tel:+918825569400' },
+    { label: 'Call', href: `tel:${callNumbers[0].tel}` },
   ],
 };
 

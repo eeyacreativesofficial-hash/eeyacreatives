@@ -94,7 +94,7 @@ export default function Footer() {
                 href={contact.whatsapp.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-start gap-3 min-w-0"
+                className="group flex items-start gap-3 min-w-0 min-h-[44px]"
               >
                 <Icon name="whatsapp" size={20} className="text-gold shrink-0 mt-0.5" />
                 <div className="flex flex-col min-w-0">
@@ -102,7 +102,7 @@ export default function Footer() {
                     WhatsApp
                   </span>
                   <span className="text-[15px] xl:text-[16px] text-[#CFCBC1] font-sans whitespace-nowrap group-hover:text-gold transition-colors">
-                    {contact.phone.display}
+                    {contact.whatsapp.displayNumber}
                   </span>
                 </div>
               </a>
@@ -111,7 +111,7 @@ export default function Footer() {
               <a
                 href={emailAction.gmailWebUrl}
                 onClick={emailAction.handleEmailClick}
-                className="group flex items-start gap-3 min-w-0"
+                className="group flex items-start gap-3 min-w-0 min-h-[44px]"
                 aria-label={`Send email to ${contact.email.address}`}
               >
                 <Icon name="mail" size={20} className="text-gold shrink-0 mt-0.5" />
@@ -126,20 +126,25 @@ export default function Footer() {
               </a>
 
               {/* Call */}
-              <a
-                href={contact.phone.url}
-                className="group flex items-start gap-3 min-w-0"
-              >
+              <div className="flex items-start gap-3 min-w-0">
                 <Icon name="phone" size={20} className="text-gold shrink-0 mt-0.5" />
                 <div className="flex flex-col min-w-0">
                   <span className="text-[11px] font-sans font-semibold tracking-wider uppercase text-gold">
                     Call
                   </span>
-                  <span className="text-[15px] xl:text-[16px] text-[#CFCBC1] font-sans whitespace-nowrap group-hover:text-gold transition-colors">
-                    {contact.phone.display}
-                  </span>
+                  <div className="flex flex-col">
+                    {contact.callNumbers.map((num) => (
+                      <a
+                        key={num.tel}
+                        href={`tel:${num.tel}`}
+                        className="min-h-[44px] flex items-center text-[15px] xl:text-[16px] text-[#CFCBC1] font-sans whitespace-nowrap hover:text-gold transition-colors"
+                      >
+                        {num.display}
+                      </a>
+                    ))}
+                  </div>
                 </div>
-              </a>
+              </div>
             </div>
           </div>
         </div>
@@ -205,26 +210,31 @@ export default function Footer() {
                 href={contact.whatsapp.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-sm text-[#CFCBC1] hover:text-gold transition-colors"
+                className="min-h-[44px] flex items-center gap-3 text-sm text-[#CFCBC1] hover:text-gold transition-colors"
               >
                 <Icon name="whatsapp" size={18} className="text-gold shrink-0" />
-                <span>{contact.phone.display}</span>
+                <span>{contact.whatsapp.displayNumber}</span>
               </a>
               <a
                 href={emailAction.gmailWebUrl}
                 onClick={emailAction.handleEmailClick}
-                className="flex items-center gap-3 text-sm text-[#CFCBC1] hover:text-gold transition-colors"
+                className="min-h-[44px] flex items-center gap-3 text-sm text-[#CFCBC1] hover:text-gold transition-colors"
               >
                 <Icon name="mail" size={18} className="text-gold shrink-0" />
                 <span className="break-all">{contact.email.address}</span>
               </a>
-              <a
-                href={contact.phone.url}
-                className="flex items-center gap-3 text-sm text-[#CFCBC1] hover:text-gold transition-colors"
-              >
-                <Icon name="phone" size={18} className="text-gold shrink-0" />
-                <span>{contact.phone.display}</span>
-              </a>
+              <div className="flex flex-col">
+                {contact.callNumbers.map((num) => (
+                  <a
+                    key={num.tel}
+                    href={`tel:${num.tel}`}
+                    className="min-h-[44px] flex items-center gap-3 text-sm text-[#CFCBC1] hover:text-gold transition-colors"
+                  >
+                    <Icon name="phone" size={18} className="text-gold shrink-0" />
+                    <span>{num.display}</span>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </div>

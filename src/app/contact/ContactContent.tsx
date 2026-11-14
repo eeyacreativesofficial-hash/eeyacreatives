@@ -156,7 +156,7 @@ export default function ContactContent() {
               target="_blank"
               rel="noopener noreferrer"
               data-wa-cta="true"
-              aria-label="Chat on WhatsApp: +91 88255 69400"
+              aria-label={`Chat on WhatsApp: ${contact.whatsapp.displayNumber}`}
               className="card-dark bg-[#111925] border border-[#202B3B] p-6 rounded-sm flex items-center justify-between gap-4 hover:border-[#26364F] transition-all duration-300 md:hover:-translate-y-1 md:hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-[#080B12] h-full group"
             >
               <div className="flex items-start gap-4 min-w-0">
@@ -168,7 +168,7 @@ export default function ContactContent() {
                     Chat on WhatsApp
                   </span>
                   <span className="text-ivory font-medium text-base block group-hover:text-gold transition-colors">
-                    +91 88255 69400
+                    {contact.whatsapp.displayNumber}
                   </span>
                   <span className="block text-xs text-[#A9A59A] mt-1">
                     Quick chat and project discussions
@@ -209,31 +209,35 @@ export default function ContactContent() {
             </a>
 
             {/* Call */}
-            <a
-              href="tel:+918825569400"
-              aria-label="Call us: +91 88255 69400"
-              className="card-dark bg-[#111925] border border-[#202B3B] p-6 rounded-sm flex items-center justify-between gap-4 hover:border-[#26364F] transition-all duration-300 md:hover:-translate-y-1 md:hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-[#080B12] h-full group"
+            <div
+              className="card-dark bg-[#111925] border border-[#202B3B] p-6 rounded-sm flex items-center justify-between gap-4 hover:border-[#26364F] transition-all duration-300 md:hover:-translate-y-1 md:hover:shadow-lg h-full group"
             >
-              <div className="flex items-start gap-4 min-w-0">
+              <div className="flex items-start gap-4 min-w-0 w-full">
                 <div className="w-11 h-11 rounded-sm bg-gold/15 border border-gold/30 flex items-center justify-center flex-shrink-0 text-gold mt-0.5 group-hover:scale-105 transition-transform">
                   <Icon name="phone" size={22} />
                 </div>
-                <div className="min-w-0">
+                <div className="min-w-0 flex-1">
                   <span className="text-xs font-sans uppercase tracking-widest text-gold/80 block mb-1">
                     Call us
                   </span>
-                  <span className="text-ivory font-medium text-base block group-hover:text-gold transition-colors">
-                    +91 88255 69400
-                  </span>
+                  <div className="flex flex-col space-y-0.5">
+                    {contact.callNumbers.map((num) => (
+                      <a
+                        key={num.tel}
+                        href={`tel:${num.tel}`}
+                        aria-label={`Call us: ${num.display}`}
+                        className="min-h-[44px] flex items-center text-ivory font-medium text-base hover:text-gold transition-colors"
+                      >
+                        {num.display}
+                      </a>
+                    ))}
+                  </div>
                   <span className="block text-xs text-[#A9A59A] mt-1">
-                    Tap to call on mobile
+                    Tap a number to call
                   </span>
                 </div>
               </div>
-              <div className="text-gold/60 group-hover:text-gold group-hover:translate-x-1 transition-all shrink-0">
-                <Icon name="arrowRight" size={18} />
-              </div>
-            </a>
+            </div>
           </div>
         </div>
       </Section>
