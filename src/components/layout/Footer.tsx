@@ -47,7 +47,7 @@ export default function Footer() {
 
           {/* Col 2: Quick Links (6 rows, 44px min row height, padding-block: 10px, line-height: 1.4) */}
           <div className="flex flex-col items-start">
-            <h3 className="font-sans text-sm font-semibold text-ivory tracking-wider uppercase mb-3 h-[44px] flex items-center whitespace-nowrap">
+            <h3 className="font-sans text-sm font-semibold text-ivory tracking-wider uppercase mb-8 h-[44px] flex items-center whitespace-nowrap">
               Quick Links
             </h3>
             <ul className="flex flex-col w-full">
@@ -66,7 +66,7 @@ export default function Footer() {
 
           {/* Col 3: Services (6 rows, identical 44px min row height, padding-block: 10px, line-height: 1.4) */}
           <div className="flex flex-col items-start">
-            <h3 className="font-sans text-sm font-semibold text-ivory tracking-wider uppercase mb-3 h-[44px] flex items-center whitespace-nowrap">
+            <h3 className="font-sans text-sm font-semibold text-ivory tracking-wider uppercase mb-8 h-[44px] flex items-center whitespace-nowrap">
               Services
             </h3>
             <ul className="flex flex-col w-full">
@@ -85,7 +85,7 @@ export default function Footer() {
 
           {/* Col 4: Get in Touch (three items: WhatsApp, Email, Call, 20px gap, no copy button) */}
           <div className="flex flex-col items-start min-w-0">
-            <h3 className="font-sans text-sm font-semibold text-ivory tracking-wider uppercase mb-3 h-[44px] flex items-center whitespace-nowrap">
+            <h3 className="font-sans text-sm font-semibold text-ivory tracking-wider uppercase mb-8 h-[44px] flex items-center whitespace-nowrap">
               Get in Touch
             </h3>
             <div className="flex flex-col w-full space-y-5">
