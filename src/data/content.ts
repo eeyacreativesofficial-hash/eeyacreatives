@@ -14,7 +14,7 @@ export const callNumbers = [
 ] as const;
 
 export type DirectWhatsAppMode = 'visitor' | 'as-written';
-export const directWhatsAppMode: DirectWhatsAppMode = 'as-written';
+export const directWhatsAppMode: DirectWhatsAppMode = 'visitor';
 export const directWhatsAppMessage = "Hello EEYA CREATIVES, I'd like to know more about your services.";
 // greetingText is meant for the WhatsApp Business greeting message (configured inside the WhatsApp Business app).
 export const greetingText = 'Thank you for contacting EEYA CREATIVES! Please let us know how we can help you.';
